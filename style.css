@@ -2,8 +2,6 @@
 body {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
     background-color: lightsteelblue;
   }
@@ -16,7 +14,6 @@ body {
   margin: 0 auto; /* Centrar horizontalmente */
   margin-top: 5px;
   padding: 20px; /* Añadir espacio interno */
-  text-align: center; /* Centrar contenido de texto */
   border-radius: 5px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
@@ -33,22 +30,8 @@ body {
     margin-bottom: 10px; /* Agregar espacio entre elementos de la lista */
   }
   p {
-    animation-duration: 3s;
-    animation-name: slidein;
     color: black;
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  }
-  
-  @keyframes slidein {
-    from {
-      margin-left: 100%;
-      width: 300%;
-    }
-  
-    to {
-      margin-left: 89%;
-      width: 100%;
-    }
   }
   
