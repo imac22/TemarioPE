@@ -1,0 +1,54 @@
+/* Centra el contenido del body */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: lightsteelblue;
+  }
+  
+  /* Contorno verde neón para las etiquetas section */
+  section {
+    background-color: aliceblue;
+    border: 1px solid black; /* Contorno negro */
+  width: 90%; /* Ancho del 90% de la página */
+  margin: 0 auto; /* Centrar horizontalmente */
+  margin-top: 5px;
+  padding: 20px; /* Añadir espacio interno */
+  text-align: center; /* Centrar contenido de texto */
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  }
+  h1, h2, h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  ul {
+    list-style-type: 1; /* Eliminar viñetas o guiones predeterminados */
+  }
+  
+  li {
+    padding: 10px; /* Agregar espacio alrededor de cada elemento de la lista */
+    margin-bottom: 10px; /* Agregar espacio entre elementos de la lista */
+  }
+  p {
+    animation-duration: 3s;
+    animation-name: slidein;
+    color: black;
+    size: 12px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 89%;
+      width: 100%;
+    }
+  }
+  
