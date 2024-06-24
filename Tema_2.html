@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button onclick="location.href='Tema_1.html'">Tema 1</button>
+    <button onclick="location.href='menu.html'">Menú</button>
+    <h1>Tema 2</h1>
+    <h2>Fundamentos de la Teoría de Probabilidad</h2>
+    <p>José María Ortiz Escamilla</p>
+<section>
+    <h3>2.1 Técnicas de conteo</h3>
+    <ol type="1">
+        <li><b>2.1.1 Principio aditivo</b><br> Establece que la probabilidad de que ocurra al menos uno de dos eventos mutuamente 
+            excluyentes es igual a la suma de las probabilidades individuales de cada evento. Se expresa matemáticamente como: <br> 
+            P(A o B) = P(A) + P(B)
+            <br>
+            Donde:
+            <br>
+            P(A o B): Probabilidad de que ocurra A o B. <br>
+            P(A): Probabilidad de que ocurra A. <br>
+            P(B): Probabilidad de que ocurra B.</li>
+
+
+        <li><b>2.1.2 Principio multiplicativo</b><br> Establece que la probabilidad de que ocurran dos eventos independientes es 
+            igual al producto de las probabilidades individuales de cada evento. Se expresa matemáticamente como: <br>
+            <br>
+            P(A y B) = P(A) * P(B)
+            <br>
+            Donde:
+            <br>
+            P(A y B): Probabilidad de que ocurran A y B. <br>
+            P(A): Probabilidad de que ocurra A. <br>
+            P(B): Probabilidad de que ocurra B.</li>
+
+
+        <li><b>2.1.3 Notación Factorial</b><br> La notación factorial se utiliza para representar el 
+            producto de una secuencia de números enteros positivos consecutivos. Se escribe como: <br>
+            <br>
+            n! = n * (n-1) * (n-2) * ... * 1
+            <br>
+            Donde:
+            <br>
+            n!: Factorial de n. <br>
+            n: Número entero positivo.</li>
+
+
+        <li><b>2.1.4 Permutaciones</b><br> Formas en que se pueden ordenar un conjunto de elementos sin importar 
+            la repetición. Se calcula el número de permutaciones de n elementos utilizando la fórmula: <br>
+            <br>
+            nPr = n! * (n-r)!
+            <br>
+            Donde:
+            <br>
+            nPr: Permutaciones de n elementos tomados de r en r. <br>
+            n: Número total de elementos. <br>
+            r: Número de elementos que se toman.</li>
+
+
+        <li><b>2.1.5 Combinaciones</b><br> Formas en que se pueden seleccionar un conjunto de elementos sin importar 
+            el orden. Se calcula el número de combinaciones de n elementos tomados de r utilizando la fórmula: <br>
+            <br>
+            nCr = n! / (r! * (n-r)!)
+            <br>
+            Donde:
+            <br>
+            nCr: Combinaciones de n elementos tomados de r en r. <br>
+            n: Número total de elementos. <br>
+            r: Número de elementos que se toman.</li>
+
+
+        <li><b>2.1.6 Diagramas de Árbol</b><br> Herramienta visual que se utiliza para representar las posibles combinaciones 
+            de eventos y sus probabilidades. Cada rama del árbol representa un evento y la probabilidad de cada rama se indica junto a ella.</li>
+
+
+        <li><b>2.1.7 Teorema del Binomio</b><br> El teorema del binomio es una fórmula que se utiliza para expandir la potencia de un binomio (a + b).</li>
+        
+    </ol>
+</section>
+
+<section>
+    <h3>2.2 Teoría elemental de probabilidad</h3>
+    <label>
+        La teoría elemental de la probabilidad es una rama fundamental de las matemáticas que se encarga de medir la duda en situaciones aleatorias. 
+        En otras palabras, nos permite asignar un número entre verdadero y falso a la posibilidad de que ocurra un determinado evento.
+    </label>
+</section>
+
+<section>
+    <h3>2.3 Probabilidad de eventos</h3>
+    <ol type="1">
+                <li><b>2.3.1 Definición de espacio muestral</b><br> conjunto de todos los resultados posibles de un experimento aleatorio (Se representa con la letra S).</li>
+                <li><b>2.3.1 Definición de evento</b><br>  Es cualquier subconjunto del espacio muestral. En otras palabras, es un grupo de resultados específicos dentro del experimento aleatorio.</li>
+                <li><b>2.3.1 Simbología.</b><br> 
+                <ul>
+                    <li><b>A, B, C</b> son conjuntos.</li>
+                    <li><b>a, b, c</b> son elementos de los conjuntos.</li>
+                    <li><b>U</b> es la unión de conjuntos.</li>
+                    <li><b>∩</b> es la intersección de conjuntos.</li>
+                    <li><b>Aᶜ</b> es el complemento de un conjunto.</li>
+                </ul>
+                </li>
+                <li><b>2.3.1 Unión</b><br> Representa la combinación de dos o más eventos. Se escribe A ∪ B, donde A y B son los eventos, y significa que el resultado puede ser A o B o ambos.</li>
+                <li><b>2.3.1 Intersección</b><br> Representa la ocurrencia simultánea de dos o más eventos. Se escribe A ∩ B, donde A y B son los eventos, y significa que el resultado debe ser A y B a la vez.</li>
+                <li><b>2.3.1 Diagramas de Venn</b><br> Son representaciones gráficas que utilizan círculos o figuras para mostrar las relaciones entre eventos. Cada figura 
+                    representa un evento, y la superposición de las figuras indica la intersección de los eventos. <br>
+                    <img src="imagenes/diagramas.png" alt="Diagramas de Venn" width="500 px" height="400 px">
+                </li>
+</ol>
+</section>
+
+<section>
+    <h3>2.4 Probabilidad con Técnicas de conteo</h3>
+        <ol type="1">
+        <li><b>Axiomas</b> <br>
+            <ol>
+                <li><b>Axioma de No Negatividad</b> <br> La probabilidad de cualquier evento A es siempre un número no negativo, es decir, P(A) ≥ 0. </li>
+                <li><b>Axioma de Normalización:</b> <br> La probabilidad del espacio muestral S, que es el conjunto de todos los resultados posibles de un experimento, es siempre igual a 1, es decir, P(S) = 1. </li>
+                <li><b>Axioma de Aditividad para Eventos Mutuamente Exclusivos: </b> <br> La probabilidad de la unión de dos o más eventos mutuamente excluyentes es igual a la suma de sus probabilidades individuales. Si A y B son eventos mutuamente excluyentes, entonces P(A ∪ B) = P(A) + P(B).</li>
+            </ol>
+        </li>
+        <li><b>Teoremas </b> <br>
+            <ol>
+                <li><b>Teorema de la Complementación</b><br>La probabilidad del complemento de un evento A, denotado como A^c, es igual a 1 menos la probabilidad de A, es decir, P(A^c) = 1 - P(A). </li>
+                <li><b>Teorema de la Probabilidad Total</b><br>Si A es un evento y B1, B2, ..., Bn son eventos mutuamente excluyentes que forman una partición completa del espacio muestral S, entonces la probabilidad de A es igual a la suma de las probabilidades de A dado cada uno de los eventos .</li>
+                <li><b>Teorema de Bayes</b><br>El teorema de Bayes proporciona una fórmula para calcular la probabilidad condicional de un evento A dado que ha ocurrido otro evento B, donde P(B) > 0. </li>
+            </ol>
+        </li>
+        </ol>
+</section>
+    
+<section>
+    <h3>2.5 Probabilidad condicional</h3>
+    <ol type="1">
+        <li><b>Dependiente</b> <br>Dos eventos se consideran dependientes si la ocurrencia de uno afecta la probabilidad del otro.</li>
+        <li><b>Independiente </b> <br>Dos eventos se consideran independientes si la ocurrencia de uno no afecta la probabilidad del otro.</li>
+        </ol>
+</section>
+
+<section>
+    <h3>2.6 Ley multiplicativa</h3>
+    <label>permite calcular la probabilidad de que ocurran dos eventos independientes de manera simultánea. Se expresa mediante la siguiente fórmula: 
+        <br>
+        P(A ∩ B) = P(A) * P(B)
+        <br>
+        Donde:
+        <br>
+        P(A ∩ B) representa la probabilidad conjunta de que ocurran los eventos A y B. <br>
+        P(A) representa la probabilidad del evento A. <br>
+        P(B) representa la probabilidad del evento B.</label>
+</section>
+
+<section>
+    <h3>2.7 Eventos independientes : Regla de Bayes</h3>
+    <label>Herramienta fundamental en probabilidad y estadística que nos permite actualizar las creencias o probabilidades previas a nueva evidencia. Se expresa mediante la siguiente fórmula:
+        <br>
+        P(A | B) = (P(B | A) * P(A)) / P(B)
+        <br>
+        Donde:
+        <br>
+        P(A | B) representa la probabilidad de A dado que B ha ocurrido (probabilidad a posteriori). <br>
+        P(B | A) representa la probabilidad de B dado que A ha ocurrido (probabilidad condicional). <br>
+        P(A) representa la probabilidad a priori de A (probabilidad previa). <br>
+        P(B) representa la probabilidad a priori de B (probabilidad previa).</label>
+</section>
+    
+</body>
+</html>
