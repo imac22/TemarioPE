@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+    <button onclick="location.href='menu.html'">Menú</button>
+    <button onclick="location.href='Tema_1.html'">Tema 1</button>
+    <button onclick="location.href='Tema_2.html'">Tema 2</button>
+    <button onclick="location.href='Tema_3.html'">Tema 3</button>
+    <h1>Tema 4</h1>
+    <h2>Distribuciones de probabilidad</h2>
+
+    <p>José María Ortiz Escamilla</p>
+
+    <section>
+        <h2>4.1 Función de probabilidad</h2>
+        <p>
+            Es una función que asigna probabilidades a cada valor posible de una variable aleatoria discreta, 
+            asegurando que la suma de todas las probabilidades sea 1, normalmente se usa para describir la probabilidad 
+            de ocurrencia de cada valor posible de una variable aleatoria discreta.<br>
+            \( P(X = x_i) = p_i \) con \( \sum p_i = 1 \).
+        </p>
+    </section>
+
+    <section>
+        <h2>4.2 Distribución binomial</h2>
+        <p>
+            Esta describe la probabilidad de obtener un número específico de éxitos en una serie de ensayos independientes, 
+            cada uno con una probabilidad de exito constante, se una para modelar situaciones donde hay un número fijo 
+            de ensayos independientes con dos posibles resultados (éxito o fracaso).<br>
+            Su formula es: <br>
+            \( P(X = k) = \binom{n}{k} p^k (1-p)^{n-k} \)<br>
+            Donde: <br>
+        </p>
+        <ul>
+            <li>n: Número de ensayos</li>
+            <li>k: Número de éxitos deseados</li>
+            <li>p: Probabilidad de éxito en cada ensayo</li>
+            <li>\(\binom{n}{k}\): Coeficiente binomial (combinaciones de \( n \) elementos tomados de \( k \) en \( k \))</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4.3 Distribución hipergeométrica</h2>
+        <p>
+            Esta describe la probabilidad de obtener un número específico de éxitos en una muestra tomada sin 
+            reemplazo de una población finita, normalmente usado para modelar situaciones donde se extrae una 
+            muestra sin reemplazo de una población finita y se cuenta el número de éxitos.<br>
+            Su formula es: <br>
+            \( P(X = k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}} \) <br>
+            Donde: 
+        </p>
+        <ul>
+            <li>N: tamaño de la población</li>
+            <li>K: número de éxitos en la población</li>
+            <li>n: tamaño de la muestra</li>
+            <li>k: número de éxitos en la muestra</li>
+            <li>\(\binom{a}{b}\): coeficiente binomial</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4.4 Distribución de Poisson</h2>
+        <p>
+            Esta describe la probabilidad de un número determinado de eventos ocurriendo en un intervalo fijo de tiempo o espacio, 
+            dado que estos eventos ocurren con una tasa promedio constante y son independientes, sirve para modelar el número 
+            de eventos que ocurren en un intervalo de tiempo o espacio cuando los eventos son raros y ocurren independientemente.<br>
+            Su formula es: <br>
+            \( P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!} \) <br>
+            Donde: 
+        </p>
+        <ul>
+            <li>\(\lambda\): tasa promedio de ocurrencia de eventos</li>
+            <li>k: número de eventos observados</li>
+            <li>e: base del logaritmo natural</li>
+            <li>k!: factorial de \( k \)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4.5 Distribución normal</h2>
+        <p>
+            Es una distribución continua que describe datos que se agrupan alrededor de una media, con una forma simétrica de campana, 
+            normalmente usada para modelar variables continuas que se distribuyen simétricamente alrededor de una media, como alturas, 
+            pesos y puntuaciones de exámenes.<br>
+            Su formula es: <br>
+            \( f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \) <br>
+            Donde: 
+        </p>
+        <ul>
+            <li>\(\mu\): media de la distribución</li>
+            <li>\(\sigma\): desviación estándar</li>
+            <li>x: valor de la variable aleatoria</li>
+            <li>e: base del logaritmo natural</li>
+            <li>\(\pi\): constante pi</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4.6 Distribución T-Student</h2>
+        <p>
+            Es una distribución que se utiliza para estimar la media de una población normal cuando el tamaño de la muestra es 
+            pequeño y la varianza de la población es desconocida, sirve para estimar la media de una población con muestras 
+            pequeñas y varianza desconocida, especialmente en pruebas t de hipótesis.<br>
+            Su formula es: <br>
+            \( f(t) = \frac{\Gamma\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \Gamma\left(\frac{\nu}{2}\right)} \left(1 + \frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}} \) <br>
+            Donde: 
+        </p>
+        <ul>
+            <li>t: valor de la variable aleatoria</li>
+            <li>\(\nu\): grados de libertad</li>
+            <li>\(\Gamma\): función gamma</li>
+            <li>\(\pi\): constante pi</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4.7 Distribución Chi-cuadrada</h2>
+        <p>
+            Es una distribución que describe la suma de los cuadrados de variables aleatorias normales estándar, usada en 
+            pruebas de hipótesis y construcción de intervalos de confianza para la varianza de una población normal.<br>
+            Su formula es: <br>
+            \( X = \sum_{i=1}^{k} Z_i^2 \) <br>
+            Donde: 
+        </p>
+        <ul>
+            <li>\(Z_i\): variables aleatorias normales estándar</li>
+            <li>k: grados de libertad</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4.8 Distribución F</h2>
+        <p>
+            Es una distribución utilizada para comparar dos varianzas, particularmente en el análisis de varianza (ANOVA), 
+            usada para comparar varianzas entre dos muestras y en análisis de varianza (ANOVA).<br>
+            Su formula es: <br>
+            \( F = \frac{(U/d_1)}{(V/d_2)} \) <br>
+            Donde: 
+        </p>
+        <ul>
+            <li>U: variable aleatoria Chi-cuadrada con \( d_1 \) grados de libertad</li>
+            <li>V: variable aleatoria Chi-cuadrada con \( d_2 \) grados de libertad</li>
+            <li>d_1: grados de libertad del numerador</li>
+            <li>d_2: grados de libertad del denominador</li>
+        </ul>
+    </section>
+</body>
+</html>
