@@ -8,6 +8,10 @@ body {
   display: flex;
   flex-direction: column;
 }
+h2, h2{
+  margin: 0;
+  font-size: 2.5em;
+}
 
 header {
   background-color: #333;
@@ -22,6 +26,11 @@ header h1 {
   font-size: 2.5em;
 }
 
+.temario a {
+  margin: 0;
+  font-size: 1.5em;
+}
+
 main {
   width: 100%;
   max-width: flex;
@@ -30,6 +39,7 @@ main {
 
 .temario h2, .temario h3 {
   color: #444;
+  font-size: 1.8em;
 }
 
 .temas {
@@ -126,6 +136,8 @@ li {
   border: 4px solid black; 
   border-radius: 5px;
   width: 500 px;
+  margin: 0;
+  font-size: 1.3em;
 }
 
 .navbar ul {
