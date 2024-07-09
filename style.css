@@ -90,3 +90,16 @@ li {
   border: 3px solid black; 
   border-radius: 5px;
 }
+
+button {
+  flex: 1;
+  background-color: aliceblue;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+button:hover {
+  background-color: aliceblue;
+  border: 3px solid black; 
+  border-radius: 5px;
+}
