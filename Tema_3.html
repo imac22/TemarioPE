@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema 1</title>
+    <title>Tema 3</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
-    <button onclick="location.href='index.html'">Inicio</button>
-    <button onclick="location.href='Tema_1.html'">Tema 1</button>
-    <button onclick="location.href='Tema_2.html'">Tema 2</button>
-    <button onclick="location.href='Tema_4.html'">Tema 4</button>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Tema_1.html">Tema 1</a></li>
+            <li><a href="Tema_2.html">Tema 2</a></li>
+            <li><a href="Tema_4.html">Tema 4</a></li>
+            <li><a href="Tema_5.html">Tema 5</a></li>
+        </ul>
+    </nav>
     <h1>Tema 3</h1>
     <h2>Variables aleatorias</h2>
     <p>José María Ortiz Escamilla</p>
@@ -34,17 +41,17 @@
             <b>3.1.2 Valor esperado.</b><br>
             La suma de los productos de cada valor posible de X  por su probabilidad correspondiente. <br>
             Se expresa como: <br>
-           E(x) = Σ xᵢ * P(X = xᵢ) <br>
+           \(E(x) = Σ xᵢ * P(X = xᵢ)\) <br>
            En donde:
            <ul>
             <li>
-                E(X) representa el valor esperado de la variable aleatoria X.
+                \(E(X)\) representa el valor esperado de la variable aleatoria X.
             </li>
             <li>
-                xᵢ representa cada uno de los valores posibles que puede tomar la variable aleatoria X.
+                \(x_i\) representa cada uno de los valores posibles que puede tomar la variable aleatoria X.
             </li>
             <li>
-                P(X = xᵢ) representa la probabilidad de que la variable aleatoria X tome el valor xᵢ.
+                \(P(X = x_i)\) representa la probabilidad de que la variable aleatoria X tome el valor xᵢ.
             </li>
            </ul>
         </li>
@@ -56,20 +63,20 @@
                     Es una medida estadistica que muestra la dispercion de los vaores de una variable aleatoria respecto a su medida. <br>
                     Indica que tan alejados estan los valores del promedio. <br>
                     Se calcula con la siguiente formula: <br>
-                    Varianza (σ²) = Σ [(xᵢ - μ)² * P(xᵢ)] <br>
+                    \(Varianza (σ²) = Σ [(xᵢ - μ)² * P(xᵢ)])\ <br>
                     En donde: <br>
                     <ul>
                         <li>
-                            Σ: Representa la suma de todos los valores posibles de la variable (xᵢ).
+                            \(Σ\): Representa la suma de todos los valores posibles de la variable (xᵢ).
                         </li>
                         <li>
-                            xᵢ: Es cada uno de los posibles valores que puede tomar la variable.
+                            \(x_i\): Es cada uno de los posibles valores que puede tomar la variable.
                         </li>
                         <li>
-                            μ: Representa la media o valor esperado de la variable.
+                            \(\mu\): Representa la media o valor esperado de la variable.
                         </li>
                         <li>
-                            P(xᵢ): Es la probabilidad de que ocurra xᵢ.
+                            \(P(x_i):\) Es la probabilidad de que ocurra xᵢ.
                         </li>
                     </ul>
                 </li>
@@ -77,21 +84,21 @@
                     <b>Desviación etándar. </b> <br>
                     Es la raíz cuadrada de la varianza. <br>
                     Se calcula de la siguiente manera: <br>
-                    Desviación estándar (σ) = √Varianza (σ²)
+                    \(Desviación estándar (σ) = √Varianza (σ²)\)
                 </li>
             </ul>
         </li>
         <li>
             <b>3.1.4 Función acumulada. </b> <br>
             Representa la probabilidad de que la variable aleatoria tome un valor menor o igual a un valor especifico de (x) <br>
-            F(x) = P(X ≤ x)<br>
+            \(F(x) = P(X ≤ x)\)<br>
             En donde: <br>
             <ul>
                 <li>
-                    P(X ≤ x) representa la probabilidad del evento "X es menor o igual que x".
+                    \(P(X ≤ x)\): representa la probabilidad del evento "X es menor o igual que x".
                 </li>
                 <li>
-                    X es la variable aleatoria discreta.
+                    \(X\) es la variable aleatoria discreta.
                 </li>
             </ul>
 
@@ -118,10 +125,10 @@
             <b>3.2.2 Valor esperado</b> <br>
             Se define como la media ponderada de los valores posibles que pueden tomar la variale donde cada valor se pondera por su respectiva probabilidad de ocurrencia.
             Se representa como: <br>
-            E(X) = ∫_{-\infty}^{\infty} x * f(x) dx <br>
+            \(E(X) = ∫_{-\infty}^{\infty} x * f(x)\) dx <br>
             <ul>
                 <li>
-                    E(X) denota el valor esperado de X.
+                    \(E(X)\) denota el valor esperado de X.
                 </li>
                 <li>
                     La integral se extiende desde -∞ hasta ∞, abarcando todo el rango posible de valores de X.
@@ -144,17 +151,17 @@
                     Varianza. <br>
                     Es la media de los cuadrados de las desviaciones individuales de cada valor respecto a la media poblacional. <br>
                     Su formula es: <br>
-                    Varianza (σ²) = E[(X - μ)²] <br>
+                    \(Varianza (σ²) = E[(X - μ)²]\) <br>
                     En donde: <br>
                     <ul>
                         <li>
-                            E representa la esperanza matemática (media poblacional)
+                            \(E\) representa la esperanza matemática (media poblacional)
                         </li>
                         <li>
-                            μ es la media poblacional de X
+                            \(\mu\) es la media poblacional de X
                         </li>
                         <li>
-                            X - μ representa la desviación individual de cada valor respecto a la media
+                            \(X - \mu\) representa la desviación individual de cada valor respecto a la media
                         </li>
                     </ul>
                 </li>
@@ -162,7 +169,7 @@
                     Desviación Estándar. <br>
                     Es la raíz cuadrada positiva de la varianza <br>
                     Se calcula: <br>
-                    Desviación estándar (σ) = √Varianza (σ²)
+                    Desviación estándar \((σ) = √Varianza (σ²)\)
                 </li>
             </ul>
         </li>
@@ -170,7 +177,7 @@
             <b>3.2.4 Función acumulada.</b> <br>
             indica la proporción de eventos en los que la variable X es menor o igual a un cierto valor x. <br>
             Se define como: <br>
-            F(x) = P(X ≤ x) <br>
+            \(F(x) = P(X ≤ x)\) <br>
             Donde P(•) denota la probabilidad del evento dentro de los paréntesis.
         </li>
         <li>
@@ -178,9 +185,14 @@
             Es el proceso de determinar la probabilidad de que la variable tome un valor específico o caiga dentro de un intervalo particular. <br>
             Pra esto usaremos la Función de densidad de probabilidad (f(x)), y la  Función de distribución acumulada (F(x)). <br> 
             La probabilidad de que la variable X tome un valor dentro de un intervalo [a, b] se calcula de la siguiente manera: <br>
-            P(a ≤ X ≤ b) = ∫_a^b f(x) dx
+            \( P(a ≤ X ≤ b) = ∫_a^b f(x) dx\)
         </li>
     </ol>
 </section>
+
+<footer>
+    <a href="index.html">Regresar a Inicio</a>
+</footer>
+
 </body>
 </html>
