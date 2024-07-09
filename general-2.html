@@ -15212,38 +15212,280 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">codigo_base.jose</span> <span class="k">as</span> <span class="nn">j</span>
-<span class="kn">import</span> <span class="nn">codigo_base.gustavo</span> <span class="k">as</span> <span class="nn">g</span>
-<span class="kn">import</span> <span class="nn">codigo_base.milagros</span> <span class="k">as</span> <span class="nn">m</span>
-<span class="kn">import</span> <span class="nn">codigo_base.rosario</span> <span class="k">as</span> <span class="nn">r</span>
-<span class="kn">import</span> <span class="nn">codigo_base.isai</span> <span class="k">as</span> <span class="nn">i</span>
-<span class="kn">import</span> <span class="nn">codigo_base.formatear_tabla</span> <span class="k">as</span> <span class="nn">ft</span>
-<span class="kn">import</span> <span class="nn">codigo_base.lopez</span> <span class="k">as</span> <span class="nn">p</span>
-<span class="kn">import</span> <span class="nn">codigo_base.ortiz</span> <span class="k">as</span> <span class="nn">o</span>
-<span class="kn">import</span> <span class="nn">codigo_base.chavez</span> <span class="k">as</span> <span class="nn">c</span>
-<span class="kn">import</span> <span class="nn">codigo_base.fr</span> <span class="k">as</span> <span class="nn">fr</span>
-<span class="kn">import</span> <span class="nn">codigo_base.fa</span> <span class="k">as</span> <span class="nn">fa</span>
-<span class="kn">import</span> <span class="nn">codigo_base.chema</span> <span class="k">as</span> <span class="nn">che</span>
-<span class="kn">import</span> <span class="nn">codigo_base.escamilla</span> <span class="k">as</span> <span class="nn">esc</span>
-<span class="kn">import</span> <span class="nn">codigo_base.isai</span> <span class="k">as</span> <span class="nn">i</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># FUNCIONES</span>
+<span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
 
-<span class="kn">import</span> <span class="nn">codigo_base.falcon</span> <span class="k">as</span> <span class="nn">f</span>
+<span class="k">def</span> <span class="nf">plot_ojiva</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">fr_acum</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
 
-<span class="c1"># Graficas</span>
-<span class="kn">import</span> <span class="nn">codigo_base.reyes</span> <span class="k">as</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">codigo_base.montaño</span> <span class="k">as</span> <span class="nn">me</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">codigo_base.caracas</span> <span class="k">as</span> <span class="nn">ca</span>
-<span class="kn">import</span> <span class="nn">codigo_base.paz</span> <span class="k">as</span> <span class="nn">pa</span>
-<span class="kn">import</span> <span class="nn">codigo_base.atanacio</span> <span class="k">as</span> <span class="nn">at</span>
+    <span class="c1"># Datos</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Ancho, Alto del gráfico</span>
+
+    <span class="c1"># Ajustes para el graficado del polígono</span>
+    <span class="n">datos_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">clases</span> 
+    <span class="n">datos_y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">fr_acum</span> 
+
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">datos_x</span><span class="p">,</span> <span class="n">datos_y</span><span class="p">,</span> 
+            <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> 
+            <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">labelx</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>  <span class="c1"># Etiqueta del eje x</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">labely</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>  <span class="c1"># Etiqueta del eje y</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>  <span class="c1"># Etiqueta del título</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>  <span class="c1"># Activar cuadrícula</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Mostrar gráfico</span>
+
+<span class="k">def</span> <span class="nf">plot_hist</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span> <span class="n">mrks</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Set the figure size</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">mrks</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span>
+           <span class="n">width</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+           <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#14BF48&quot;</span><span class="p">,</span> <span class="s2">&quot;#33FFBE&quot;</span><span class="p">,</span> <span class="s2">&quot;#333CFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#FF3349&quot;</span><span class="p">,</span> <span class="s2">&quot;#F6FF33&quot;</span><span class="p">,</span> <span class="s2">&quot;#33FFBE&quot;</span><span class="p">])</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">mrks</span><span class="p">,</span>  <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">labelx</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>  <span class="c1"># X-axis label</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">labely</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>  <span class="c1"># Y-axis label</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># Title</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>  <span class="c1"># Enable grid</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Display the plot</span>
+    
+    <span class="k">return</span> <span class="n">clases</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span> <span class="n">mrks</span>
+
+<span class="k">def</span> <span class="nf">plot_hist</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span> <span class="n">mrks</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Set the figure size</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">mrks</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span>
+           <span class="n">width</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+           <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#14BF48&quot;</span><span class="p">,</span> <span class="s2">&quot;#33FFBE&quot;</span><span class="p">,</span> <span class="s2">&quot;#333CFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#FF3349&quot;</span><span class="p">,</span> <span class="s2">&quot;#F6FF33&quot;</span><span class="p">,</span> <span class="s2">&quot;#33FFBE&quot;</span><span class="p">])</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">mrks</span><span class="p">,</span>  <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">labelx</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>  <span class="c1"># X-axis label</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">labely</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>  <span class="c1"># Y-axis label</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># Title</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>  <span class="c1"># Enable grid</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Display the plot</span>
+    
+    <span class="k">return</span> <span class="n">clases</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span> <span class="n">mrks</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">clases_grouped</span><span class="p">(</span><span class="n">datos</span><span class="p">):</span>
+    <span class="n">amplitud</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">datos</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">nclases</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mf">3.3</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="p">)))</span>
+    <span class="n">anc_clas</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">amplitud</span> <span class="o">/</span> <span class="n">m</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">nclases</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">marc_clase</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">lim_inf</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">lim_sup</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">nclases</span><span class="p">)):</span>
+        <span class="n">marc_clase</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">anc_clas</span> <span class="o">+</span> <span class="n">anc_clas</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="n">lim_inf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">anc_clas</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">lim_sup</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">anc_clas</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="n">marc_clase</span>
+
+<span class="k">def</span> <span class="nf">fa_grouped</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">):</span>
+    <span class="n">fa</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">lim_inf</span><span class="p">)</span>
+    <span class="n">clases</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">lim_inf</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">datos</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lim_inf</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">lim_inf</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="c1">#if j == 0:</span>
+                <span class="k">if</span> <span class="n">lim_inf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">elemento</span> <span class="o">&lt;=</span> <span class="n">lim_sup</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                    <span class="n">fa</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">lim_inf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">elemento</span> <span class="o">&lt;</span> <span class="n">lim_sup</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                <span class="c1">#if lim_inf[j] &lt; elemento &lt;= lim_sup[j]:</span>
+                    <span class="n">fa</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">break</span>
+    <span class="k">return</span> <span class="n">fa</span><span class="p">,</span> <span class="n">clases</span>
+
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="k">def</span> <span class="nf">tabla_grouped</span><span class="p">(</span><span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="n">mrks</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span> <span class="n">freq_relativa</span><span class="p">,</span> <span class="n">frecuencia_acumulada</span><span class="p">):</span>
+   
+    <span class="c1"># Create the DataFrame with column headers</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Limite inferior&#39;</span><span class="p">:</span> <span class="n">lim_inf</span><span class="p">,</span>
+            <span class="s1">&#39;Limite superior&#39;</span><span class="p">:</span> <span class="n">lim_sup</span><span class="p">,</span>
+            <span class="s1">&#39;Marcas de clase&#39;</span><span class="p">:</span> <span class="n">mrks</span><span class="p">,</span>
+            <span class="s1">&#39;Frecuencia absoluta&#39;</span><span class="p">:</span> <span class="n">freq_absoluta</span><span class="p">,</span>
+            <span class="s1">&#39;Frecuencia Relativa&#39;</span><span class="p">:</span> <span class="n">freq_relativa</span><span class="p">,</span>
+            <span class="s1">&#39;Frecuencia Acumulada&#39;</span><span class="p">:</span> <span class="n">frecuencia_acumulada</span><span class="p">}</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="k">def</span> <span class="nf">obtener_fa</span><span class="p">(</span><span class="n">fr</span><span class="p">):</span>
+    
+    <span class="n">fa</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">fr</span><span class="p">:</span>
+        
+        <span class="n">suma</span> <span class="o">+=</span> <span class="n">elemento</span>
+        <span class="n">fa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">suma</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">fa</span>
+<span class="k">def</span> <span class="nf">clases_str_sort</span><span class="p">(</span><span class="n">datos_formated</span><span class="p">):</span>
+    <span class="n">ordenamiento</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">datos_formated</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">orden</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">datos_formated</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">datos_formated</span><span class="p">[</span><span class="n">orden</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">datos_formated</span><span class="p">[</span><span class="n">orden</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">ordenamiento</span> <span class="o">=</span> <span class="n">datos_formated</span><span class="p">[</span><span class="n">orden</span><span class="p">]</span>
+                <span class="n">datos_formated</span><span class="p">[</span><span class="n">orden</span><span class="p">]</span> <span class="o">=</span> <span class="n">datos_formated</span><span class="p">[</span><span class="n">orden</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="n">datos_formated</span><span class="p">[</span><span class="n">orden</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">ordenamiento</span>
+
+    <span class="k">return</span> <span class="n">datos_formated</span>
+
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">def</span> <span class="nf">imptabla</span><span class="p">(</span><span class="n">clases_sorted</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span> <span class="n">fr_relativa</span><span class="p">,</span> <span class="n">fr_acum</span><span class="p">):</span>
+
+    <span class="c1"># Create the DataFrame with column headers</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Clases&#39;</span><span class="p">:</span> <span class="n">clases_sorted</span><span class="p">,</span>
+            <span class="s1">&#39;F absoluta&#39;</span><span class="p">:</span> <span class="n">fa_sorted</span><span class="p">,</span>
+            <span class="s1">&#39;F relativa&#39;</span><span class="p">:</span> <span class="n">fr_relativa</span><span class="p">,</span>
+            <span class="s1">&#39;F acumulada&#39;</span><span class="p">:</span> <span class="n">fr_acum</span><span class="p">}</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="k">def</span> <span class="nf">obtener_fr</span><span class="p">(</span><span class="n">fa</span><span class="p">):</span>
+
+  <span class="n">fr</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">fa</span><span class="p">:</span>
+    <span class="n">fr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemento</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fa</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">fr</span>
+
+<span class="k">def</span> <span class="nf">frecuencia_rel</span><span class="p">(</span><span class="n">frecuencia_abs</span><span class="p">):</span>
+    <span class="n">fr</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tot_fa</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">frecuencia_abs</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">frec</span> <span class="ow">in</span> <span class="n">frecuencia_abs</span><span class="p">:</span>
+        <span class="n">frel</span> <span class="o">=</span> <span class="p">(</span><span class="n">frec</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="n">tot_fa</span>
+        <span class="n">fr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frel</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fr</span>
+
+<span class="k">def</span> <span class="nf">ordenar_asc</span><span class="p">(</span><span class="n">arreglo</span><span class="p">):</span>
+    <span class="n">fa_sorted</span> <span class="o">=</span> <span class="p">[]</span>    
+    <span class="n">arr_len</span> <span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">arreglo</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">arr_len</span><span class="p">):</span>                
+        <span class="n">min_idx</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">arr_len</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">arreglo</span> <span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">arreglo</span><span class="p">[</span><span class="n">min_idx</span><span class="p">]:</span>
+                <span class="n">min_idx</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="n">arreglo</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">arreglo</span><span class="p">[</span><span class="n">min_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">arreglo</span><span class="p">[</span><span class="n">min_idx</span><span class="p">],</span> <span class="n">arreglo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">arreglo</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">calcular_frecuencia_a</span><span class="p">(</span><span class="n">fr</span><span class="p">):</span>
+    <span class="n">frec_ac</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">suma_frecuencias</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">fr</span><span class="p">:</span>
+        <span class="n">suma_frecuencias</span> <span class="o">+=</span> <span class="n">elemento</span>
+        <span class="n">frec_ac</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">suma_frecuencias</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">frec_ac</span>
+
+<span class="k">def</span> <span class="nf">format_list</span><span class="p">(</span><span class="n">datos</span><span class="p">):</span>
+    <span class="n">lista</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">dato</span> <span class="ow">in</span> <span class="n">datos</span><span class="p">:</span>
+        <span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dato</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">lista</span>
+    
+<span class="k">def</span> <span class="nf">sort_clases_fa</span><span class="p">(</span><span class="n">clases_originales</span><span class="p">,</span> <span class="n">clases_sorted</span><span class="p">,</span> <span class="n">fa_absolutas</span><span class="p">):</span>
+    <span class="n">fa_sorted</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">clases_sorted</span><span class="p">:</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">clases_originales</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+        <span class="n">fa</span> <span class="o">=</span> <span class="n">fa_absolutas</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">fa_sorted</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fa</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fa_sorted</span>
+
+<span class="k">def</span> <span class="nf">plot_poligono</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span><span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">datos_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">clases</span> <span class="o">+</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">clases</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">datos_y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">fa_sorted</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">datos_x</span><span class="p">,</span> <span class="n">datos_y</span><span class="p">,</span> 
+        <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> 
+        <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">labelx</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">labely</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+    <span class="k">return</span> <span class="n">clases</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span> <span class="n">marcas_texto</span>
+
+<span class="k">def</span> <span class="nf">clases_str_sort</span><span class="p">(</span><span class="n">arreglo_1</span><span class="p">):</span>
+    <span class="n">clases</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">arreglo_1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">elemento</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">clases</span><span class="p">:</span>
+            <span class="n">clases</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clases</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">clases</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">clases</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">clases</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                <span class="n">clases</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">clases</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">clases</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">clases</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">clases</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="k">def</span> <span class="nf">plot_barras</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span><span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span>
+                <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#33FFBE&quot;</span><span class="p">,</span> <span class="s2">&quot;#333CFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#FF3349&quot;</span><span class="p">,</span> <span class="s2">&quot;#F6FF33&quot;</span><span class="p">,</span> <span class="s2">&quot;#333CFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#33FFBE&quot;</span><span class="p">])</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">labelx</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> 
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">labely</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> 
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>  
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+
+        <span class="k">return</span> <span class="n">clases</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span> <span class="n">marcas_texto</span>
+
+<span class="k">def</span> <span class="nf">plot_pie</span><span class="p">(</span><span class="n">fr_relativa</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">fr_relativa</span><span class="p">,</span>
+            <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%0.1f%%</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#14BF48&quot;</span><span class="p">,</span> <span class="s2">&quot;#33FFBE&quot;</span><span class="p">,</span> <span class="s2">&quot;#333CFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#FF3349&quot;</span><span class="p">,</span> <span class="s2">&quot;#F6FF33&quot;</span><span class="p">,</span> <span class="s2">&quot;#33FFBE&quot;</span><span class="p">],</span>
+            <span class="n">labels</span><span class="o">=</span><span class="n">marcas_texto</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">fr_relativa</span> 
+
+<span class="k">def</span> <span class="nf">frec_abs</span><span class="p">(</span><span class="n">datos_entrada</span><span class="p">):</span>
+    <span class="n">clases</span><span class="p">,</span> <span class="n">fa_absoluta</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">datos_entrada</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">elemento</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">clases</span><span class="p">:</span>
+            <span class="n">clases</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+            <span class="n">fa_absoluta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>        
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">clases</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>        
+            <span class="n">fa_absoluta</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">clases</span><span class="p">,</span> <span class="n">fa_absoluta</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Funciones cargadas&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15251,12 +15493,33 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Funciones cargadas
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Arreglo a usar</span>
@@ -15265,17 +15528,17 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="c1">#datos_entrada = 2, 4, 2, 5, 6, 3, 9, -1, -4, 5, -3</span>
 <span class="c1">#datos_entrada = 2, 4, 2, 5, 6, 3, 9, -1, -4, 5, -3</span>
 
-<span class="n">clases</span><span class="p">,</span> <span class="n">fa_absoluta</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">frec_abs</span><span class="p">(</span><span class="n">datos_entrada</span><span class="p">)</span>  <span class="c1">#Calcula las clases unicas asi como su F_absoluta</span>
+<span class="n">clases</span><span class="p">,</span> <span class="n">fa_absoluta</span> <span class="o">=</span> <span class="n">frec_abs</span><span class="p">(</span><span class="n">datos_entrada</span><span class="p">)</span>  <span class="c1">#Calcula las clases unicas asi como su F_absoluta</span>
 
-<span class="n">clases_sorted</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">ordenar_asc</span><span class="p">(</span><span class="n">clases</span><span class="p">)</span> <span class="c1">#Ordena las clases por de mayor a menor</span>
+<span class="n">clases_sorted</span> <span class="o">=</span> <span class="n">ordenar_asc</span><span class="p">(</span><span class="n">clases</span><span class="p">)</span> <span class="c1">#Ordena las clases por de mayor a menor</span>
 
-<span class="n">fa_sorted</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sort_clases_fa</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">clases_sorted</span><span class="p">,</span> <span class="n">fa_absoluta</span><span class="p">)</span> <span class="c1">#Ordena las F_absolutas</span>
+<span class="n">fa_sorted</span> <span class="o">=</span> <span class="n">sort_clases_fa</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">clases_sorted</span><span class="p">,</span> <span class="n">fa_absoluta</span><span class="p">)</span> <span class="c1">#Ordena las F_absolutas</span>
 
-<span class="n">fr_relativa</span> <span class="o">=</span>  <span class="n">g</span><span class="o">.</span><span class="n">frecuencia_rel</span><span class="p">(</span><span class="n">fa_sorted</span><span class="p">)</span> <span class="c1">#Ordena las F_relativas</span>
+<span class="n">fr_relativa</span> <span class="o">=</span>  <span class="n">frecuencia_rel</span><span class="p">(</span><span class="n">fa_sorted</span><span class="p">)</span> <span class="c1">#Ordena las F_relativas</span>
 
-<span class="n">fr_acum</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">calcular_frecuencia_a</span><span class="p">(</span><span class="n">fr_relativa</span><span class="p">)</span> <span class="c1">#Ordena las F_acomuladas</span>
+<span class="n">fr_acum</span> <span class="o">=</span> <span class="n">calcular_frecuencia_a</span><span class="p">(</span><span class="n">fr_relativa</span><span class="p">)</span> <span class="c1">#Ordena las F_acomuladas</span>
 
-<span class="n">tabla</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">imptabla</span><span class="p">(</span><span class="n">clases_sorted</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span> <span class="n">fr_relativa</span><span class="p">,</span> <span class="n">fr_acum</span><span class="p">)</span> <span class="c1">#Ordena los datos en una tabla</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">imptabla</span><span class="p">(</span><span class="n">clases_sorted</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span> <span class="n">fr_relativa</span><span class="p">,</span> <span class="n">fr_acum</span><span class="p">)</span> <span class="c1">#Ordena los datos en una tabla</span>
 
 <span class="nb">print</span> <span class="p">(</span><span class="n">tabla</span><span class="p">)</span> <span class="c1">#Imprime la tabla</span>
 </pre></div>
@@ -15316,24 +15579,24 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">1.32</span><span class="p">,</span>
          <span class="mf">1.32</span><span class="p">,</span> <span class="mf">1.32</span><span class="p">,</span> <span class="mf">1.65</span><span class="p">,</span> <span class="mf">1.65</span><span class="p">,</span> <span class="mf">1.65</span><span class="p">,</span> <span class="mf">1.65</span><span class="p">]</span>
 
-<span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="n">mrks</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">clases_grouped</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="n">mrks</span> <span class="o">=</span> <span class="n">clases_grouped</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Límites Inferiores:&quot;</span><span class="p">,</span> <span class="n">lim_inf</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Límites Superiores:&quot;</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Marcas de Clase:&quot;</span><span class="p">,</span> <span class="n">mrks</span><span class="p">)</span>
 
-<span class="n">freq_absoluta</span><span class="p">,</span> <span class="n">clases</span> <span class="o">=</span> <span class="n">che</span><span class="o">.</span><span class="n">fa_grouped</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">)</span>
+<span class="n">freq_absoluta</span><span class="p">,</span> <span class="n">clases</span> <span class="o">=</span> <span class="n">fa_grouped</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">freq_absoluta</span><span class="p">)</span>
-<span class="n">freq_relativa</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">obtener_fr</span><span class="p">(</span><span class="n">freq_absoluta</span><span class="p">)</span>
-<span class="n">frecuencia_acumulada</span> <span class="o">=</span> <span class="n">fa</span><span class="o">.</span><span class="n">obtener_fa</span><span class="p">(</span><span class="n">freq_relativa</span><span class="p">)</span>
+<span class="n">freq_relativa</span> <span class="o">=</span> <span class="n">obtener_fr</span><span class="p">(</span><span class="n">freq_absoluta</span><span class="p">)</span>
+<span class="n">frecuencia_acumulada</span> <span class="o">=</span> <span class="n">obtener_fa</span><span class="p">(</span><span class="n">freq_relativa</span><span class="p">)</span>
 
-<span class="n">tbl</span> <span class="o">=</span> <span class="n">esc</span><span class="o">.</span><span class="n">tabla_grouped</span><span class="p">(</span><span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="n">mrks</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span> <span class="n">freq_relativa</span><span class="p">,</span> <span class="n">frecuencia_acumulada</span><span class="p">)</span>
+<span class="n">tbl</span> <span class="o">=</span> <span class="n">tabla_grouped</span><span class="p">(</span><span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="n">mrks</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span> <span class="n">freq_relativa</span><span class="p">,</span> <span class="n">frecuencia_acumulada</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
 
 <span class="c1"># Definicion de &#39;titulos&#39;</span>
@@ -15343,11 +15606,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <span class="c1"># Impresion de las tablas correspondientes</span>
-<span class="n">histograma</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">plot_hist</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">freq_relativa</span><span class="p">,</span> <span class="n">mrks</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
-<span class="n">poligono</span> <span class="o">=</span> <span class="n">me</span><span class="o">.</span><span class="n">plot_poligono</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span><span class="n">mrks</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
-<span class="n">barras</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">plot_barras</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span><span class="n">mrks</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
-<span class="n">ojiva</span> <span class="o">=</span> <span class="n">at</span><span class="o">.</span><span class="n">plot_ojiva</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">frecuencia_acumulada</span><span class="p">,</span> <span class="n">mrks</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
-<span class="n">pastel</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">plot_pie</span><span class="p">(</span><span class="n">freq_relativa</span><span class="p">,</span><span class="n">mrks</span><span class="p">,</span><span class="n">titulo</span><span class="p">)</span>
+<span class="n">histograma</span> <span class="o">=</span> <span class="n">plot_hist</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">freq_relativa</span><span class="p">,</span> <span class="n">mrks</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
+<span class="n">poligono</span> <span class="o">=</span> <span class="n">plot_poligono</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span><span class="n">mrks</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
+<span class="n">barras</span> <span class="o">=</span> <span class="n">plot_barras</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">freq_absoluta</span><span class="p">,</span><span class="n">mrks</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
+<span class="n">ojiva</span> <span class="o">=</span> <span class="n">plot_ojiva</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">frecuencia_acumulada</span><span class="p">,</span> <span class="n">mrks</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
+<span class="n">pastel</span> <span class="o">=</span> <span class="n">plot_pie</span><span class="p">(</span><span class="n">freq_relativa</span><span class="p">,</span><span class="n">mrks</span><span class="p">,</span><span class="n">titulo</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15474,7 +15737,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Arreglo a usar</span>
@@ -15487,19 +15750,19 @@ class="
 
 
 
-<span class="n">datosF</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">format_list</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span> <span class="c1">#Cambia el formato de los datos del arreglo</span>
+<span class="n">datosF</span> <span class="o">=</span> <span class="n">format_list</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span> <span class="c1">#Cambia el formato de los datos del arreglo</span>
 
-<span class="n">clases</span><span class="p">,</span> <span class="n">fa_absoluta</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">frec_abs</span><span class="p">(</span><span class="n">datosF</span><span class="p">)</span> <span class="c1">#Calcula las clases unicas asi como su F_absoluta</span>
+<span class="n">clases</span><span class="p">,</span> <span class="n">fa_absoluta</span> <span class="o">=</span> <span class="n">frec_abs</span><span class="p">(</span><span class="n">datosF</span><span class="p">)</span> <span class="c1">#Calcula las clases unicas asi como su F_absoluta</span>
 
-<span class="n">clases_sorted</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">clases_str_sort</span><span class="p">(</span><span class="n">clases</span><span class="p">)</span> <span class="c1">#Ordena las clases por ordes alfabetico</span>
+<span class="n">clases_sorted</span> <span class="o">=</span> <span class="n">clases_str_sort</span><span class="p">(</span><span class="n">clases</span><span class="p">)</span> <span class="c1">#Ordena las clases por ordes alfabetico</span>
 
-<span class="n">fa_sorted</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sort_clases_fa</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">clases_sorted</span><span class="p">,</span> <span class="n">fa_absoluta</span><span class="p">)</span> <span class="c1">#Ordena las F_absolutas</span>
+<span class="n">fa_sorted</span> <span class="o">=</span> <span class="n">sort_clases_fa</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">clases_sorted</span><span class="p">,</span> <span class="n">fa_absoluta</span><span class="p">)</span> <span class="c1">#Ordena las F_absolutas</span>
 
-<span class="n">fr_relativa</span> <span class="o">=</span>  <span class="n">g</span><span class="o">.</span><span class="n">frecuencia_rel</span><span class="p">(</span><span class="n">fa_sorted</span><span class="p">)</span> <span class="c1">#Calculas las F_relativas</span>
+<span class="n">fr_relativa</span> <span class="o">=</span>  <span class="n">frecuencia_rel</span><span class="p">(</span><span class="n">fa_sorted</span><span class="p">)</span> <span class="c1">#Calculas las F_relativas</span>
 
-<span class="n">fr_acum</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">calcular_frecuencia_a</span><span class="p">(</span><span class="n">fr_relativa</span><span class="p">)</span> <span class="c1">#Calculas las F_acomuladas</span>
+<span class="n">fr_acum</span> <span class="o">=</span> <span class="n">calcular_frecuencia_a</span><span class="p">(</span><span class="n">fr_relativa</span><span class="p">)</span> <span class="c1">#Calculas las F_acomuladas</span>
 
-<span class="n">tabla</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">imptabla</span><span class="p">(</span><span class="n">clases_sorted</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span> <span class="n">fr_relativa</span><span class="p">,</span> <span class="n">fr_acum</span><span class="p">)</span> <span class="c1">#Ordena los datos recabados en una tabla</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">imptabla</span><span class="p">(</span><span class="n">clases_sorted</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span> <span class="n">fr_relativa</span><span class="p">,</span> <span class="n">fr_acum</span><span class="p">)</span> <span class="c1">#Ordena los datos recabados en una tabla</span>
 
 
 <span class="nb">print</span> <span class="p">(</span><span class="n">tabla</span><span class="p">)</span> <span class="c1">#Impresion de la tabla</span>
@@ -15511,14 +15774,12 @@ class="
 <span class="n">labely</span> <span class="o">=</span> <span class="s2">&quot;Consumo&quot;</span>
 <span class="n">titulo</span> <span class="o">=</span> <span class="s2">&quot;Preferencia de bebidas&quot;</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Opte por usar el grafico de barras ya que a mi pareces facilita la visualizacion de la diferencia en la coincidencia de los apellidos de mejor manera&quot;</span><span class="p">)</span>
-
 <span class="c1"># Impresion de las tablas correspondientes</span>
-<span class="n">histograma</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">plot_hist</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
-<span class="n">poligono</span> <span class="o">=</span> <span class="n">me</span><span class="o">.</span><span class="n">plot_poligono</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span>  <span class="n">fa_sorted</span><span class="p">,</span><span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
-<span class="n">barras</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">plot_barras</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span><span class="n">fa_sorted</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
-<span class="n">ojiva</span> <span class="o">=</span> <span class="n">at</span><span class="o">.</span><span class="n">plot_ojiva</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span>  <span class="n">fr_acum</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
-<span class="n">pastel</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">plot_pie</span><span class="p">(</span><span class="n">fr_relativa</span><span class="p">,</span><span class="n">marcas_texto</span><span class="p">,</span><span class="n">titulo</span><span class="p">)</span>
+<span class="n">histograma</span> <span class="o">=</span> <span class="n">plot_hist</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span> <span class="n">fa_sorted</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
+<span class="n">poligono</span> <span class="o">=</span> <span class="n">plot_poligono</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span>  <span class="n">fa_sorted</span><span class="p">,</span><span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
+<span class="n">barras</span> <span class="o">=</span> <span class="n">plot_barras</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span><span class="n">fa_sorted</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
+<span class="n">ojiva</span> <span class="o">=</span> <span class="n">plot_ojiva</span><span class="p">(</span><span class="n">clases</span><span class="p">,</span>  <span class="n">fr_acum</span><span class="p">,</span> <span class="n">marcas_texto</span><span class="p">,</span> <span class="n">labelx</span><span class="p">,</span> <span class="n">labely</span><span class="p">,</span> <span class="n">titulo</span><span class="p">)</span>
+<span class="n">pastel</span> <span class="o">=</span> <span class="n">plot_pie</span><span class="p">(</span><span class="n">fr_relativa</span><span class="p">,</span><span class="n">marcas_texto</span><span class="p">,</span><span class="n">titulo</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15545,7 +15806,6 @@ class="
 3     MANZANA           3   10.000000    73.333333
 4     NARANJA           3   10.000000    83.333333
 5     TORONJA           5   16.666667   100.000000
-Opte por usar el grafico de barras ya que a mi pareces facilita la visualizacion de la diferencia en la coincidencia de los apellidos de mejor manera
 </pre>
 </div>
 </div>
