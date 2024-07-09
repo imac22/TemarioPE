@@ -73,6 +73,8 @@ li {
 .navbar button {
   flex: 1;
   background-color: aliceblue;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .navbar a {
