@@ -26,84 +26,7 @@ header h1 {
   font-size: 2.5em;
 }
 
-.temario a {
-  margin: 0;
-  font-size: 1.5em;
-}
 
-main {
-  width: 100%;
-  max-width: flex;
-  text-align: center;
-}
-
-.temario h2, .temario h3 {
-  color: #444;
-  font-size: 1.8em;
-}
-
-.temas {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  gap: 15px;
-}
-
-.tema {
-  color: white;
-  border: none;
-  padding: 15px 32px;
-  text-align: center;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 12px;
-  width: 80%;
-  transition: background-color 0.3s ease;
-}
-
-/* Specific Button Colors */
-.tema1 {
-  background-color: #607D8B;
-}
-
-.tema2 {
-  background-color: #78909C;
-}
-
-.tema3 {
-  background-color: #90A4AE;
-}
-
-.tema4 {
-  background-color: #B0BEC5;
-}
-
-.tema5 {
-  background-color: #CFD8DC;
-}
-
-/* Hover Effects */
-.tema1:hover {
-  background-color: #455A64;
-}
-
-.tema2:hover {
-  background-color: #546E7A;
-}
-
-.tema3:hover {
-  background-color: #78909C;
-}
-
-.tema4:hover {
-  background-color: #90A4AE;
-}
-
-.tema5:hover {
-  background-color: #B0BEC5;
-}
 
 section {
   background-color: aliceblue;
@@ -147,8 +70,9 @@ li {
   display: flex;
 }
 
-.navbar li {
+.navbar button {
   flex: 1;
+  background-color: aliceblue;
 }
 
 .navbar a {
@@ -159,29 +83,8 @@ li {
   text-decoration: none;
 }
 
-.navbar a:hover {
-  background-color: #575757;
+.navbar button:hover {
+  background-color: aliceblue;
   border: 3px solid black; 
   border-radius: 5px;
-}
-
-main {
-  padding: 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  border: 3px solid black; 
-  border-radius: 5px;
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
 }
